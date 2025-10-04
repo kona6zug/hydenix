@@ -10,7 +10,6 @@
     ./comma.nix
     ./dolphin.nix
     ./editors.nix
-    ./fastfetch.nix
     ./firefox.nix
     ./gtk.nix
     ./git.nix
