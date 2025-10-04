@@ -83,7 +83,18 @@ in
       "wheel"
       "networkmanager"
       "video"
-    ]; # User groups (determines permissions)
+    ];
+  #installed packages
+  packages = with pkgs; [
+  brave
+  keepassxc
+  telegram-desktop
+  zapzap
+  tradingview
+  signal-desktop
+  masterpdfeditor
+];
+# User groups (determines permissions)
     shell = pkgs.zsh; # Default shell (options: pkgs.bash, pkgs.zsh, pkgs.fish)
   };
 
