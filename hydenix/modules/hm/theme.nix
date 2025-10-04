@@ -24,7 +24,7 @@ in
 
     active = lib.mkOption {
       type = lib.types.str;
-      default = "Catppuccin Mocha";
+      default = "Vanta Black";
       description = "Active theme name";
     };
 
@@ -33,6 +33,9 @@ in
       default = [
         "Catppuccin Mocha"
         "Catppuccin Latte"
+        "Ever Blushing"
+        "Graphite Mono"
+        "Vanta Black"
       ];
       description = "Available theme names";
     };
