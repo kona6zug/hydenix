@@ -33,12 +33,12 @@ in
     # Run `lshw -short` or `lspci` to identify your hardware
 
     # GPU Configuration (choose one):
-    # inputs.hydenix.inputs.nixos-hardware.nixosModules.common-gpu-nvidia # NVIDIA
+    inputs.hydenix.inputs.nixos-hardware.nixosModules.common-gpu-nvidia # NVIDIA
     # inputs.hydenix.inputs.nixos-hardware.nixosModules.common-gpu-amd # AMD
 
     # CPU Configuration (choose one):
     # inputs.hydenix.inputs.nixos-hardware.nixosModules.common-cpu-amd # AMD CPUs
-    # inputs.hydenix.inputs.nixos-hardware.nixosModules.common-cpu-intel # Intel CPUs
+    inputs.hydenix.inputs.nixos-hardware.nixosModules.common-cpu-intel # Intel CPUs
 
     # Additional Hardware Modules - Uncomment based on your system type:
     # inputs.hydenix.inputs.nixos-hardware.nixosModules.common-hidpi # High-DPI displays
@@ -47,15 +47,15 @@ in
   ];
 
   # If enabling NVIDIA, you will be prompted to configure hardware.nvidia
-  # hardware.nvidia = {
-  #   open = true; # For newer cards, you may want open drivers
-  #   prime = { # For hybrid graphics (laptops), configure PRIME:
-  #     amdBusId = "PCI:0:2:0"; # Run `lspci | grep VGA` to get correct bus IDs
-  #     intelBusId = "PCI:0:2:0"; # if you have intel graphics
-  #     nvidiaBusId = "PCI:1:0:0";
-  #     offload.enable = false; # Or disable PRIME offloading if you don't care
-  #   };
-  # };
+   hardware.nvidia = {
+    open = false; # For newer cards, you may want open drivers
+    prime = { # For hybrid graphics (laptops), configure PRIME:
+      amdBusId = "PCI:0:2:0"; # Run `lspci | grep VGA` to get correct bus IDs
+      intelBusId = "PCI:0:2:0"; # if you have intel graphics
+      nvidiaBusId = "PCI:1:0:0";
+      offload.enable = false; # Or disable PRIME offloading if you don't care
+    };
+  };
 
   # Home Manager Configuration - manages user-specific configurations (dotfiles, themes, etc.)
   home-manager = {
@@ -64,7 +64,7 @@ in
     extraSpecialArgs = { inherit inputs; };
     # User Configuration - REQUIRED: Change "hydenix" to your actual username
     # This must match the username you define in users.users below
-    users."hydenix" =
+    users."anas" =
       { ... }:
       {
         imports = [
@@ -76,9 +76,9 @@ in
   };
 
   # User Account Setup - REQUIRED: Change "hydenix" to your desired username (must match above)
-  users.users.hydenix = {
+  users.users.anas = {
     isNormalUser = true;
-    initialPassword = "hydenix"; # SECURITY: Change this password after first login with `passwd`
+    initialPassword = "anas"; # SECURITY: Change this password after first login with `passwd`
     extraGroups = [
       "wheel"
       "networkmanager"
@@ -91,9 +91,9 @@ in
   hydenix = {
     enable = true; # Enable Hydenix modules
     # Basic System Settings (REQUIRED):
-    hostname = "hydenix"; # REQUIRED: Set your computer's network name (change to something unique)
-    timezone = "America/Vancouver"; # REQUIRED: Set timezone (examples: "America/New_York", "Europe/London", "Asia/Tokyo")
-    locale = "en_CA.UTF-8"; # REQUIRED: Set locale/language (examples: "en_US.UTF-8", "en_GB.UTF-8", "de_DE.UTF-8")
+    hostname = "nixos"; # REQUIRED: Set your computer's network name (change to something unique)
+    timezone = "Europe/Berlin"; # REQUIRED: Set timezone (examples: "America/New_York", "Europe/London", "Asia/Tokyo")
+    locale = "de_DE.UTF-8"; # REQUIRED: Set locale/language (examples: "en_US.UTF-8", "en_GB.UTF-8", "de_DE.UTF-8")
     # For more configuration options, see: ./docs/options.md
   };
 
