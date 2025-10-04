@@ -50,7 +50,7 @@ in
    hardware.nvidia = {
     open = false; # For newer cards, you may want open drivers
     prime = { # For hybrid graphics (laptops), configure PRIME:
-      amdBusId = "PCI:0:2:0"; # Run `lspci | grep VGA` to get correct bus IDs
+      #amdBusId = "PCI:0:2:0"; # Run `lspci | grep VGA` to get correct bus IDs
       intelBusId = "PCI:0:2:0"; # if you have intel graphics
       nvidiaBusId = "PCI:1:0:0";
       offload.enable = false; # Or disable PRIME offloading if you don't care
