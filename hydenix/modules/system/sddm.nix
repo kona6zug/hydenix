@@ -21,7 +21,7 @@ in
         "Candy"
         "Corners"
       ];
-      default = "Candy";
+      default = "Corners";
       description = "SDDM theme package to use";
     };
   };
